@@ -6,7 +6,7 @@ export interface EmailProps {
 
 const Email = React.forwardRef((props: EmailProps, ref: React.Ref<HTMLInputElement>) => {
   return (
-    <div>
+    <div data-testid="email">
       <label htmlFor="email" className="form-label">Email</label>
       <input type="email" className="form-control" id="email" required ref={ref} />
       <div id="emailHelp" className="form-text">Please enter a valid email address</div>
