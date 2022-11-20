@@ -1,7 +1,7 @@
 # miniature-disco: Contact Form
 
 ## Demo
-Demo is available [here](/public){:target="_blank"}
+Demo is available [here](/public/index.html)
 
 ## Description
 React, Typescript and bootstrap are used for this demo.
