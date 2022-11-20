@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Animals, { AnimalsValues } from './Animals'
 import Colour from './Colour'
 import Email from './Email'
 import Password from './Password'
@@ -8,7 +9,7 @@ export interface ContactFormValues {
   email: string
   password: string
   colour: string
-  animals: any
+  animals: AnimalsValues
   tigerType?: string
 }
 
@@ -59,7 +60,7 @@ function ContactForm(props: ContactFormProps) {
         </div>
 
         <div className="col-12">
-          Animals : TODO
+          <Animals isTigerOptionChecked={setIsTigerOptionChecked} onChange={setAnimals} values={animals}/>
         </div>
 
         <div className='col-12'>
