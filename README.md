@@ -1,2 +1,3 @@
 # miniature-disco
-For demo purpose only
+Simple contact form built with React and Typescript.
+For demo purpose only.
