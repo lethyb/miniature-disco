@@ -4,11 +4,11 @@ export interface ColourProps {
   value?: string
 }
 
-const Colour = (props: ColourProps) => {
+const Colour = React.forwardRef((props: ColourProps, ref: React.Ref<HTMLSelectElement>) => {
   return (
     <>
       <label htmlFor="colour" className="form-label">Colour</label>
-      <select className="form-select" id="colour" required>
+      <select className="form-select" id="colour" required ref={ref}>
         <option value='blue'>Blue</option>
         <option value='green'>Green</option>
         <option value='red'>Red</option>
@@ -17,6 +17,6 @@ const Colour = (props: ColourProps) => {
       </select>
     </>
   )
-}
+})
 
 export default Colour

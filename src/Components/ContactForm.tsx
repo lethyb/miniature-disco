@@ -19,10 +19,24 @@ interface ContactFormProps {
 
 function ContactForm(props: ContactFormProps) {
 
+  const [isTigerOptionChecked, setIsTigerOptionChecked] = React.useState(false)
+  const [animals, setAnimals] = React.useState({})
+
+  const emailRef = React.useRef<HTMLInputElement>(null)
+  const passwordRef = React.useRef<HTMLInputElement>(null)
+  const colourRef = React.useRef<HTMLSelectElement>(null)
+  const tigerTypeRef = React.useRef<HTMLInputElement>(null)
+
   const handleSubmit = (event: any) => {
     event.preventDefault()
 
-    const values: Partial<ContactFormValues> = {}
+    const values: Partial<ContactFormValues> = {
+      email: emailRef.current?.value,
+      password: passwordRef.current?.value,
+      colour: colourRef.current?.value,
+      animals,
+      tigerType: tigerTypeRef.current?.value,
+    }
 
     props.onSubmit(values)
   }
@@ -33,15 +47,15 @@ function ContactForm(props: ContactFormProps) {
       <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
 
         <div className="col-sm-4">
-          <Email />
+          <Email ref={emailRef} />
         </div>
 
         <div className="col-sm-4">
-          <Password />
+          <Password ref={passwordRef} />
         </div>
 
         <div className="col-sm-4">
-          <Colour />
+          <Colour ref={colourRef} />
         </div>
 
         <div className="col-12">
@@ -49,7 +63,7 @@ function ContactForm(props: ContactFormProps) {
         </div>
 
         <div className='col-12'>
-          <TigerType hidden={false}/>
+          <TigerType ref={tigerTypeRef} hidden={!isTigerOptionChecked}/>
         </div>
 
         <div className="col-12">
