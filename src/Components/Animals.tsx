@@ -1,5 +1,10 @@
 import * as React from 'react'
 
+const BEAR_VALUE: string = 'bear'
+const TIGER_VALUE: string = 'tiger'
+const SNAKE_VALUE: string = 'snake'
+const DONKEY_VALUE: string = 'donkey'
+
 export interface AnimalsValues {
   [key: string]: string
 }
@@ -14,6 +19,19 @@ const Animals = (props: AnimalsProps) => {
 
   const values: {} = props.values ? { ...props.values } : {}
   const handleChange = (event: any) => {
+
+    if (event.target.checked) {
+      Object.assign(values, { [event.target.id]: event.target.name })
+      if (event.target.id === TIGER_VALUE) {
+        props.isTigerOptionChecked(true)
+      }
+    } else {
+      delete values[event.target.id]
+      if (event.target.id === TIGER_VALUE) {
+        props.isTigerOptionChecked(false)
+      }
+    }
+
     props.onChange(values)
   }
 
