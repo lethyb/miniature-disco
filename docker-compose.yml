@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+    react:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        volumes:
+            - ./:/react
+        networks:
+            - miniature-disco
+        ports:
+            - "8182:8182"
+        command: yarn run start
+
+networks:
+    miniature-disco:
+        driver: bridge
+
