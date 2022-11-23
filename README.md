@@ -24,6 +24,9 @@ make build
 
 # perform updates according to the package.json file
 make upy
+
+# run the tests
+make test
 ```
 
 ## Testing
