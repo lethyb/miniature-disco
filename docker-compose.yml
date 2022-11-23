@@ -10,7 +10,7 @@ services:
         networks:
             - miniature-disco
         ports:
-            - "8182:8182"
+            - "8181:8181"
         command: yarn run start
 
 networks:

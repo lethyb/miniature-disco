@@ -7,7 +7,7 @@ config.devtool = 'eval';
 config.devServer = {
     host: '0.0.0.0',
     compress: true,
-    port: 8182,
+    port: 8181,
     historyApiFallback: true,
     hot: true,
     headers: {
