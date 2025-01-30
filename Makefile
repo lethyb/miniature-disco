@@ -1,23 +1,31 @@
+UID=$(shell id -u)
+GID=${shell id -u}
+
+ARGS=UID=${UID} GID=${GID}
+
+DC_CMD=${ARGS} docker-compose
+
 default:
 	make --help
 
 create:
-	docker-compose build --force-rm --no-cache
+	${DC_CMD} build --force-rm --no-cache && \
+	make upy
 
 start:
-	docker-compose up
+	${DC_CMD} up
 
 build:
-	docker-compose run react yarn build
+	${DC_CMD} run react yarn build
 
 stop:
-	docker-compose down
+	${DC_CMD} down
 
 restart:
 	make stop start
 
 upy:
-	docker-compose run react yarn
+	${DC_CMD} run react yarn
 
 test:
-	docker-compose run react yarn test
+	${DC_CMD} run react yarn test
